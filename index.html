@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="صفحه شخصی و معرفی من">
+  <title>صفحه شخصی من</title>
+
+  <style>
+    @font-face {
+      font-family: "Vazirmatn";
+      src: url("./fonts/Vazirmatn-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+    }
+    :root {
+      --cream: #F7F3E9;
+      --green-light: #DCE6D5;
+      --green: #315844;
+      --green-dark: #203D2D;
+      --text: #242C25;
+      --muted: #72786F;
+      --white: #FFFEFA;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.9;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, 1000px);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 25px 0;
+      border-bottom: 1px solid #e5e0d4;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding: 95px 0 85px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      padding: 5px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.5;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 11px 22px;
+      border-radius: 9px;
+      font-size: 14px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .button:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .visual {
+      background: var(--green-light);
+      min-height: 300px;
+      border-radius: 48% 48% 18px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual::before,
+    .visual::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(49, 88, 68, 0.2);
+      border-radius: 50%;
+      width: 220px;
+      height: 220px;
+    }
+
+    .visual::after {
+      width: 155px;
+      height: 155px;
+    }
+
+    .profile-image {
+      width: 80%;
+      height: 280px;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: 55px 0;
+    }
+
+    .section-heading {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .about-card {
+      background: var(--white);
+      border: 1px solid #ebe6da;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .link-card {
+      background: var(--white);
+      border: 1px solid #ebe6da;
+      padding: 22px;
+      border-radius: 14px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .link-card:hover {
+      border-color: var(--green);
+      transform: translateY(-3px);
+    }
+
+    .link-card strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .link-card span {
+      color: var(--muted);
+      font-size: 13px;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 25px 0;
+      border-top: 1px solid #e5e0d4;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 60px 0;
+      }
+
+      .visual {
+        min-height: 220px;
+        grid-row: 1;
+      }
+
+      .links {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#">صفحه شخصی من.</a>
+      <a class="nav-link" href="#about">درباره من</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">سلام، خوش اومدی</span>
+
+        <h1>
+          من <span>ساجده عبدالحی</span> هستم.
+        </h1>
+
+        <p class="intro">
+          دانشجوی مهندسی کامپیوتر و علاقه‌مند به طراحی رابط کاربری
+          و توسعه وب هستم. از یادگیری، ساختن ایده‌های جدید و
+          حل مسئله لذت می‌برم.
+        </p>
+
+        <a class="button" href="#links">ارتباط با من ←</a>
+      </div>
+
+      <div class="visual">
+          <img
+            class="profile-image"
+            src="./images/portrait.png"
+            alt="تصویر شخصی من"
+        >
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-heading">کمی درباره من</h2>
+      <p class="section-description">
+        مسیری که در حال ساختنش هستم.
+      </p>
+
+      <div class="about-card">
+        <p>
+          در حال یادگیری و توسعه مهارت‌هایم در زمینه مهندسی نرم‌افزار،
+          طراحی رابط کاربری و برنامه‌نویسی هستم. هدفم این است که
+          ایده‌ها را به تجربه‌های دیجیتال ساده، کاربردی و زیبا تبدیل کنم.
+        </p>
+      </div>
+    </section>
+
+    <section id="links">
+      <h2 class="section-heading">من را پیدا کن</h2>
+      <p class="section-description">
+        برای دیدن فعالیت‌ها و ارتباط بیشتر، از لینک‌های زیر استفاده کن.
+      </p>
+
+      <div class="links">
+        <a
+          class="link-card"
+          href="https://github.com/Sajedeh-Abdolhay"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>GitHub ↗</strong>
+          <span>مشاهده پروژه‌ها</span>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://www.linkedin.com/in/sajedeh-abdolhay-758719445?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>LinkedIn ↗</strong>
+          <span>پروفایل حرفه‌ای من</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    ساخته‌شده با HTML و CSS · 2026
+  </footer>
+</body>
+</html>
