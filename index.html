@@ -9,13 +9,16 @@
   <title> | پورتفولیوی شخصی</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23315844'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%23F7F3E9' font-family='sans-serif'>S</text></svg>">
   <style>
-    /* فونت وزیرمتن (فایل محلی، بدون نیاز به اینترنت) */
+    
     @font-face {
-      font-family: "Vazirmatn";
-      src: url("fonts/Vazirmatn.woff2") format("woff2");
+      font-family: "MyFont";
+      src: url("./fonts/my-font.woff2") format("woff2");
       font-weight: 100 900;
       font-style: normal;
-      font-display: swap;
+    }
+
+    body {
+      font-family: "MyFont", sans-serif;
     }
 
     :root {
@@ -678,7 +681,7 @@
 
       <div class="visual-wrap" aria-label="تصویر تزئینی">
         <div class="visual">
-          <img class="mascot" src="images/mascot.webp" alt="شخصیت بامزه سبز و کرمی">
+          <img src="./images/profile.png" alt="تصویر پروفایل">
         </div>
         <div class="float-note"><strong>ایده تا تجربه</strong>طراحی با فکر و هدف</div>
       </div>
